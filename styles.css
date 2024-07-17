@@ -1,0 +1,113 @@
+/* Основные стили */
+h1, h2, h3 {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  font-size: 70px; /* добавьте "px" */
+  font-style: normal;
+  color: white;
+}
+
+p {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 30px; /* добавьте "px" */
+  font-weight: 400;
+  color: white;
+  display: inline;
+}
+
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;  /* предотвращаем горизонтальный скролл */
+}
+
+/* Стили для контейнера */
+.container {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "image_1 image_1"
+    "title_2 title_2"
+    "text_2 text_2"
+    "title_3 title_3"
+    "image_3 text_3"
+    "title_4 title_4"
+    "text_4 image_4"
+    "footer footer";
+  grid-auto-rows: auto;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10px; /* добавляем padding для предотвращения касания краев */
+  box-sizing: border-box; /* для того, чтобы padding и border не увеличивали ширину */
+}
+
+.item {
+  padding: 10px;
+  border: 1px solid black;
+  position: relative;
+  box-sizing: border-box; /* предотвращает переполнение due to padding */
+}
+
+.img, .img_header {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  max-width: 100%;  /* предотвращает переполнение */
+}
+
+h3 {
+  padding: 25px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  background-color: red;
+  border-radius: 10px;
+}
+
+h3:hover {
+  padding: 20px;
+  background-color: #ce0000;
+}
+
+/* Стили для областей */
+.title_1 { grid-area: header; }
+.image_1 { grid-area: image_1; }
+.title_2 { grid-area: title_2; }
+.text_2 { grid-area: text_2; }
+.title_3 { grid-area: title_3; }
+.text_3 { grid-area: text_3; }
+.image_3 { grid-area: image_3; }
+.title_4 { grid-area: title_4; }
+.image_4 { grid-area: image_4; }
+.text_4 { grid-area: text_4; }
+.footer {
+  grid-area: footer;
+  width: 100%;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* Медиазапрос для мобильных устройств */
+@media screen and (max-width: 1100px) {
+  .container {
+    grid-template-areas: 
+      "header header"
+      "image_1 image_1"
+      "title_2 title_2"
+      "text_2 text_2"
+      "title_3 title_3"
+      "image_3 image_3"
+      "text_3 text_3"
+      "title_4 title_4"
+      "image_4 image_4"
+      "text_4 text_4"
+      "footer footer";
+    max-width: 900px; /* уменьшение максимальной ширины */
+  }
+}
